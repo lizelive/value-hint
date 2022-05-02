@@ -1,26 +1,44 @@
+[linux-gid]
+type = 'u16'
+description = 'a gid'
+
 [linux-uid]
-
-[linux-uid.type]
-html = { type = 'number', min = 1000, max = 59999, step = 1}
-json = { type = 'string', autocomplete = 'username' }
-rust = 'std::net::SocketAddr'
-
+type = 'u16'
+description = 'a uid'
 
 [linux-username]
-
-[linux-username.type]
-html = { type = 'text', autocomplete = 'username'}
-json = { type = 'string' }
-rust = 'std::string::String'
+type = 'text'
+description = 'a linux style username'
+pattern = '^[a-z][-a-z0-9_]*$'
+type.html.autocomplete = 'username' 
 
 [linux-path]
-fallback = 'string'
+type = 'text'
+pattern = '^/|(/[\w-]+)+$'
+description = 'a linux file path'
 
 [linux-distro]
-fallback = 'string'
-
+type = 'dns-label'
+description = 'the ID of a linux distro from /etc/os-release'
 
 [command]
+type = 'string'
+description = 'a shell command'
+
+
+[linux-user]
+field.uid = 'linux-uid'
+field.gid = 'linux-gid'
+field.groups = '[linux-gid]'
+
+[exec]
+description = 'execute a program. if uri is not file, downloads it to tempory file before executing'
+field.program = 'uri'
+field.args = '[string]'
+field.cwd = '?path'
+field.environment = '?map<string, string>'
+field.user = '?linux-user'
 
 [script-bourne]
+type = 'text-area'
 mime = ['application/x-sh']
