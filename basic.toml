@@ -1,12 +1,93 @@
 [semver]
+description = 'a [semver 2.0.0](https://semver.org/) version'
+pattern.regex = '^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$'
+pattern.bnf = '''
+<valid semver> ::= <version core>
+                 | <version core> "-" <pre-release>
+                 | <version core> "+" <build>
+                 | <version core> "-" <pre-release> "+" <build>
+
+<version core> ::= <major> "." <minor> "." <patch>
+
+<major> ::= <numeric identifier>
+
+<minor> ::= <numeric identifier>
+
+<patch> ::= <numeric identifier>
+
+<pre-release> ::= <dot-separated pre-release identifiers>
+
+<dot-separated pre-release identifiers> ::= <pre-release identifier>
+                                          | <pre-release identifier> "." <dot-separated pre-release identifiers>
+
+<build> ::= <dot-separated build identifiers>
+
+<dot-separated build identifiers> ::= <build identifier>
+                                    | <build identifier> "." <dot-separated build identifiers>
+
+<pre-release identifier> ::= <alphanumeric identifier>
+                           | <numeric identifier>
+
+<build identifier> ::= <alphanumeric identifier>
+                     | <digits>
+
+<alphanumeric identifier> ::= <non-digit>
+                            | <non-digit> <identifier characters>
+                            | <identifier characters> <non-digit>
+                            | <identifier characters> <non-digit> <identifier characters>
+
+<numeric identifier> ::= "0"
+                       | <positive digit>
+                       | <positive digit> <digits>
+
+<identifier characters> ::= <identifier character>
+                          | <identifier character> <identifier characters>
+
+<identifier character> ::= <digit>
+                         | <non-digit>
+
+<non-digit> ::= <letter>
+              | "-"
+
+<digits> ::= <digit>
+           | <digit> <digits>
+
+<digit> ::= "0"
+          | <positive digit>
+
+<positive digit> ::= "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9"
+
+<letter> ::= "A" | "B" | "C" | "D" | "E" | "F" | "G" | "H" | "I" | "J"
+           | "K" | "L" | "M" | "N" | "O" | "P" | "Q" | "R" | "S" | "T"
+           | "U" | "V" | "W" | "X" | "Y" | "Z" | "a" | "b" | "c" | "d"
+           | "e" | "f" | "g" | "h" | "i" | "j" | "k" | "l" | "m" | "n"
+           | "o" | "p" | "q" | "r" | "s" | "t" | "u" | "v" | "w" | "x"
+           | "y" | "z"
+'''
 
 [url]
 description = 'A URL, such as a home page or company web site address as appropriate given the context of the other fields in the form.'
 
+[color-profile]
+description = "an icc color profile"
+
 [color]
-description = 'a web color, either by using a visual color picker interface or by entering the color into a text field'
+description = 'a css3 5 coming soon :tm: color <https://developer.mozilla.org/en-US/docs/Web/CSS/color_value>'
 # arguments = { model = ['named', 'hex', 'rgb', 'rgba', 'hsl', 'hsla', 'hwb'], alpha = [true, false] , precision = ['f64', 'f32', 'f16', 'u1', 'u8', 'u16', 'u32']}
 # serlizes as css color string
+
+'''
+<color> = <rgb()> | <rgba()> | <hsl()> | <hsla()> | <hwb()> | <hex-color> | <named-color> | currentcolor | <deprecated-system-color>
+<rgb()> = rgb( <percentage>{3} [ / <alpha-value> ]? ) | rgb( <number>{3} [ / <alpha-value> ]? ) | rgb( <percentage>#{3} , <alpha-value>? ) | rgb( <number>#{3} , <alpha-value>? )
+<rgba()> = rgba( <percentage>{3} [ / <alpha-value> ]? ) | rgba( <number>{3} [ / <alpha-value> ]? ) | rgba( <percentage>#{3} , <alpha-value>? ) | rgba( <number>#{3} , <alpha-value>? )
+<hsl()> = hsl( <hue> <percentage> <percentage> [ / <alpha-value> ]? ) | hsl( <hue>, <percentage>, <percentage>, <alpha-value>? )
+<hsla()> = hsla( <hue> <percentage> <percentage> [ / <alpha-value> ]? ) | hsla( <hue>, <percentage>, <percentage>, <alpha-value>? )
+<hwb()> = hwb( [<hue> | none] [<percentage> | none] [<percentage> | none] [ / [<alpha-value> | none] ]? )
+<alpha-value> = <number> | <percentage>
+<hue> = <number> | <angle>
+'''
+
+
 valid = [
     'red',
     'orange',
