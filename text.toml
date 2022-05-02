@@ -1,0 +1,19 @@
+[text-line]
+description = 'single line of text'
+fallback = 'string'
+
+[text-area]
+description = 'a multi-line plain-text editing control, useful when you want to allow users to enter a sizeable amount of free-form text, for example a comment on a review or feedback form.'
+fallback = 'string'
+
+[markdown]
+description = 'rich multiline markdown'
+# https://crates.io/crates/comrak for CommonMark / GFM
+arguments = { flavor = ['CommonMark', 'GFM', 'MultiMarkdown']}
+mime = ['text/markdown']
+
+[latex]
+description = 'a document preperation format commaon in math'
+
+[emoji]
+description = 'a single emoji'

@@ -1,0 +1,13 @@
+
+[code]
+description = 'syntax highlighted source code https://github.com/github/linguist/blob/master/lib/linguist/languages.yml'
+arguments = ['language']
+fallback = 'text-area'
+
+[json]
+description = 'a json object'
+fallback = 'text-area'
+
+[json-schema]
+description = 'a json schema'
+fallback = 'text-area'

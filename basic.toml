@@ -1,0 +1,58 @@
+[semver]
+
+[url]
+description = 'A URL, such as a home page or company web site address as appropriate given the context of the other fields in the form.'
+
+[color]
+description = 'a web color, either by using a visual color picker interface or by entering the color into a text field'
+# arguments = { model = ['named', 'hex', 'rgb', 'rgba', 'hsl', 'hsla', 'hwb'], alpha = [true, false] , precision = ['f64', 'f32', 'f16', 'u1', 'u8', 'u16', 'u32']}
+# serlizes as css color string
+valid = [
+    'red',
+    'orange',
+    'tan',
+    'rebeccapurple',
+    '#090',
+    '#009900',
+    '#090a',
+    '#009900aa',
+    'rgb(34, 12, 64, 0.6)',
+    'rgba(34, 12, 64, 0.6)',
+    'rgb(34 12 64 / 0.6)',
+    'rgba(34 12 64 / 0.3)',
+    'rgb(34.0 12 64 / 60%)',
+    'rgba(34.6 12 64 / 30%)',
+    'hsl(30, 100%, 50%, 0.6)',
+    'hsla(30, 100%, 50%, 0.6)',
+    'hsl(30 100% 50% / 0.6)',
+    'hsla(30 100% 50% / 0.6)',
+    'hsl(30.0 100% 50% / 60%)',
+    'hsla(30.2 100% 50% / 60%)',
+    'hwb(90 10% 10%)',
+    'hwb(90 10% 10% / 0.5)',
+    'hwb(90deg 10% 10%)',
+    'hwb(1.5708rad 60% 0%)',
+    'hwb(.25turn 0% 40% / 50%)'
+]
+
+fallback = 'text-line'
+# [color-named]
+# [color-hex]
+# [color-rgb]
+# [color-rgba]
+# [color-hsv]
+# [color-hsva]
+# [color-hwb]
+# more colorpsaces to consider 'grayscale', 'rgb', 'cmyk', 'hsb', 'xyz', 'lab', 'lch', 'luv'
+
+
+
+[file]
+description = 'a file'
+
+[language]
+description = 'An IETF language tag'
+valid = ['en', 'he-IL', 'uk-UA', 'iu-Cans-CA', 'en-029']
+
+[bytes]
+description = 'raw bytes'

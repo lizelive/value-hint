@@ -1,0 +1,35 @@
+[audio]
+mime = ['audio/midi', 'audio/opus', 'audio/ogg']
+
+[model]
+# https://www.iana.org/assignments/media-types/media-types.xhtml#model
+mime = ['model/vnd.usdz+zip', 'model/gltf-binary', 'model/gltf+json', 'model/vnd.collada+xml']
+
+[model-voxel]
+mime = ['model/x.vdb']
+
+[image]
+mime = ['image/jpeg', 'image/png', 'image/svg+xml', 'image/webp', 'image/avif']
+
+[image-sequance]
+description = 'an animated image'
+mime = ['image/apng', 'image/vnd.mozilla.apng']
+
+[font]
+mime = ['font/ttf', 'font/woff', 'font/woff2']
+
+[video]
+mime = ['video/webm', 'video/ogg', 'video/VP8', 'video/VP9']
+
+
+[dataset]
+mime = ['text/csv', 'application/json']
+
+[ml]
+mime = ['application/x-onnx']
+
+[archive]
+mime = ['application/zip', 'application/x-7z-compressed', 'application/x-tar']
+
+# [blocky]
+# 'application/x.minecraft-region', 'application/x.minecraft-texturepack', 'application/x.minecraft-leveldb' 'application/x.minecraft-resourcepack'

@@ -1,0 +1,47 @@
+
+
+
+[expression]
+
+[semantic-number]
+
+[computed-number]
+
+
+[semantic-number-any]
+[semantic-number-integer]
+
+[hex]
+description = 'hex data'
+
+[number-any]
+[number-integer]
+[number-real]
+[number-complex]
+[number-rational]
+
+[math-expression]
+description = 'mathematical expression'
+valid = ['cos(x)+1']
+
+[math-formula]
+description = 'mathematical formula'
+valid = ['0 = cos(x)+1']
+
+
+[math-fuction]
+description = 'mathematical function'
+valid = ['f(x) -> cos(x)+1']
+
+[math-inequality]
+description = 'mathematical inequality'
+valid = ['0 > cos(x)+1']
+
+[held-math-formula]
+
+[hex-integer]
+
+[roman-numeral]
+
+
+[environment-map]

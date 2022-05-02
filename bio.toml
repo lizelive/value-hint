@@ -1,0 +1,36 @@
+[name]
+description = '''The field expects the value to be a person's full name. Using "name" rather than breaking the name down into its components is generally preferred because it avoids dealing with the wide diversity of human names and how they are structured; however, you can use the following autocomplete values if you do need to break the name down into its components:'''
+fallback = 'text-line'
+
+[honorific-prefix]
+description = '''The prefix or title, such as "Mrs.", "Mr.", "Miss", "Ms.", "Dr.", or "Mlle.".'''
+
+
+[given-name]
+description = ''''''
+[additional-name]
+description = ''''''
+[family-name]
+description = ''''''
+[honorific-suffix]
+description = ''''''
+[nickname]
+description = ''''''
+
+[email]
+description = ''''''
+pattern = '''^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$'''
+
+[username]
+description = ''''''
+
+[bday]
+[bday-day]
+[bday-month]
+[bday-year]
+[sex]
+
+[organization-title]
+
+[organization]
+

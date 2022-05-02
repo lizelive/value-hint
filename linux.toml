@@ -1,0 +1,26 @@
+[linux-uid]
+
+[linux-uid.type]
+html = { type = 'number', min = 1000, max = 59999, step = 1}
+json = { type = 'string', autocomplete = 'username' }
+rust = 'std::net::SocketAddr'
+
+
+[linux-username]
+
+[linux-username.type]
+html = { type = 'text', autocomplete = 'username'}
+json = { type = 'string' }
+rust = 'std::string::String'
+
+[linux-path]
+fallback = 'string'
+
+[linux-distro]
+fallback = 'string'
+
+
+[command]
+
+[script-bourne]
+mime = ['application/x-sh']

@@ -1,0 +1,15 @@
+[crypto-address]
+description = 'a uri with format [currency]:[address]'
+valid = [
+    'bitcoin:12nMGd6bzC8UpyWjd9HeZESZheZ8arttAb',
+    'ethereum:0x095f1fD53A56C01c76A2a56B7273995Ce915d8C4',
+    'fil:f1mr7coxd6yzqyx2wdxrjtsp74mjckrogtlgjtyxi'
+]
+
+invalid = [
+    '12nMGd6bzC8UpyWjd9HeZESZheZ8arttAb',
+    '0x095f1fD53A56C01c76A2a56B7273995Ce915d8C4',
+    'f1mr7coxd6yzqyx2wdxrjtsp74mjckrogtlgjtyxi'
+]
+
+fallback = 'uri'

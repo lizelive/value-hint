@@ -1,0 +1,12 @@
+[oci-referance]
+description = 'a docker style referance'
+
+[oci-containerfile]
+description = 'a containerfile aka dockerfile'
+
+[oci-compose]
+description = 'a compose file https://compose-spec.io/'
+fallback = 'yaml'
+
+[oci-compose-service]
+description = 'a service frin a compose'

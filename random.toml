@@ -1,0 +1,30 @@
+
+
+
+[github-username]
+pattern = '^[a-z\d](?:[a-z\d]|-(?=[a-z\d])){0,38}$'
+maxlength = 39
+
+# from html input
+
+
+[image]
+description = '''an image'''
+
+
+[radio]
+description = 'A radio button, allowing a single value to be selected out of multiple choices with the same name value.'
+
+[select]
+description = 'choose a subset of a list'
+
+[range]
+description = ''''''
+# from html autocomplete
+
+[search]
+description = '''A single-line text field for entering search strings. Line-breaks are automatically removed from the input value. May include a delete icon in supporting browsers that can be used to clear the field. Displays a search icon instead of enter key on some devices with dynamic keypads.'''
+
+
+[url-photo]
+description = 'a url to a photo'
