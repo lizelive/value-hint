@@ -1,0 +1,402 @@
+# json scheam types
+[string]
+description = 'a utf-8 unicode string'
+
+[json]
+description = 'a json object'
+
+[bool]
+description = 'bool represents two values: true and false.'
+
+[null]
+description = 'just a flag'
+
+[bytes]
+
+# time following https://en.wikipedia.org/wiki/ISO_8601
+
+[date]
+description = "A day"
+
+
+[date_time]
+description = "a point in time"
+
+[date_time_local]
+description = "a local date time"
+
+[date_time_utc]
+description = "a datetime that must be utc"
+
+[date_week]
+description = 'a week of a particual year'
+valid = '2022-W17'
+
+[date_month]
+description = 'a month of a particual year'
+
+[week]
+description = 'a week of any year'
+
+[year]
+description = 'a year'
+
+
+[month]
+description = 'a month'
+
+
+[time]
+description = 'a time of day'
+valid = 'Thh:mm:ss.sss'
+
+[day]
+description = 'a day of the year'
+valid = ['--05-01']
+
+
+[duration]
+description = 'Durations define the amount of intervening time in a time interval'
+valid = ["P3Y6M4DT12H30M5S", 1.0]
+
+[time_interval]
+description = 'A time interval is the intervening time between two time points. The amount of intervening time is expressed by a duration (as described in the previous section). The two time points (start and end) are expressed by either a combined date and time representation or just a date representation.'
+
+[time_interval_recurring]
+description = 'Repeating intervals are specified in clause "4.5 Recurring time interval". They are formed by adding "R[n]/" to the beginning of an interval expression, where R is used as the letter itself and [n] is replaced by the number of repetitions. Leaving out the value for [n] or specifying a value of -1, means an unbounded number of repetitions. A value of 0 for [n] means the interval is not repeated.'
+valid = ['R5/2008-03-01T13:00:00Z/P1Y2M10DT2H30M']
+
+# text
+
+[text-line]
+description = "a single line of text"
+[text-area]
+[markdown]
+
+[character]
+description = 'a single [grapheme](https://en.wikipedia.org/wiki/Grapheme) or in simple terms an emoji'
+
+[word]
+description = 'a single word'
+
+[pronunciation]
+description = '''
+[IPA](https://en.wikipedia.org/wiki/International_Phonetic_Alphabet) [aɪ pʰiː eɪ] of how to pronuce stuff varient IETF language tags `fonipa`
+[X-SAMPA](https://en.wikipedia.org/wiki/X-SAMPA) is ascii [aI p_hi: eI] version of IPA varient IETF language tags  `fonxsamp`
+und-fonipa
+'''
+# people
+
+[email_adress]
+description = 'a valid email adress'
+
+[name]
+description = 'a full name of a person'
+
+[pronouns]
+description = 'pronoun infomation for a person'
+
+valid = [
+    { subject = 'he', object = 'him', possessive_determiner = 'his', independent_possessive = 'his', reflexive = 'himself' },
+    { subject = 'she', object = 'her', possessive_determiner = 'her', independent_possessive = 'hers', reflexive = 'herself' },
+    { subject = 'they', object = 'them', possessive_determiner = 'their', independent_possessive = 'theirs', reflexive = 'themself' },
+]
+
+notes = '''
+[Pronouns](https://en.wikipedia.org/wiki/Pronoun) are complex
+most of time they are expressed as `they/them` or even sometimes just `they`
+`she/her/hers`, `she/her`, `she`
+`he/him/his`, `he/him`, `he`
+`they/them/theirs`, `they/them`, `they`
+This is not enough infomation for all
+
+and to be honest im not sure if 
+'''
+
+[gender]
+description = 'ha ha fat chance. just a free form area'
+
+[gender_simple]
+description = 'either other, masc, or fem'
+
+[person_contact]
+description = 'a full name, an '
+valid = ["Barney Rubble <b@rubble.com> (http://barnyrubble.tumblr.com/)"]
+
+
+
+# finances
+[ticker_symbol]
+description = 'the ticker symbol of a stock'
+valid = ['nasdaq:msft']
+
+# unit
+[quantity]
+description = 'an ammount of an unit'
+valid = '1 GiB'
+
+
+[unit]
+description = 'a unit'
+
+[unit_dimensions]
+description = 'the magnitude of a unit in a dimension.'
+
+[unit_dimension]
+valid = [
+    'amount',
+    'electric_current',
+    'length',
+    'luminous_intensity',
+    'mass',
+    'temperature',
+    'time',
+    'angle',
+    'information',
+    'money',
+    'person',
+    'solid_angle',
+    'temperature_difference',
+]
+
+
+[percent]
+
+# si units
+[quantity_meter]
+description = 'Length (m)'
+[quantity_second]
+description = 'Time (s)'
+[quantity_mole]
+description = 'Amount of substance (mole)'
+[quantity_ampere]
+description = 'Electric current (A)'
+[quantity_kelvin]
+description = 'Temperature (K)'
+[quantity_candela]
+description = 'Luminous intensity (cd)'
+[quantity_kilogram]
+description = 'Mass (kg)'
+
+[quantity_byte]
+description = 'unit of infomation (b)'
+valid = [100, '1000', '12.3 GiB', '4 kB', '4 EiB']
+base = 'u128'
+
+note = '''
+quantity may be followed by the
+multiplicative suffixes KiB (=1024), MiB (=1024*1024), and so on
+for GiB, TiB, PiB, EiB, ZiB, and YiB (the "iB" is optional, e.g.,
+"K" has the same meaning as "KiB") or the suffixes kB (=1000), MB
+(=1000*1000), and so on for GB, TB, PB, EB, ZB, and YB.
+f64 can handle PiB
+u64 can handle EiB
+u128 can handle well past YiB
+'''
+
+[quantity_radian]
+description = 'unit of angle (rad)'
+[quantity_joule]
+[quantity_volt]
+description = 'unit of voltage, electrical potential difference, and electromotive force (V)'
+[quantity_newton]
+description = 'unit of force or weight (N)'
+[quantity_watt]
+description = 'unit of power (W)'
+[quantity_liter]
+description = 'unit of volume (L)'
+[quantity_bar]
+description = 'unit of pressure (bar)'
+
+[quantity_degree]
+description = 'unit of angle (deg)'
+
+[quantity_meter_per_second]
+description = 'unit of velocity (m/s)'
+
+# geo
+[geo_location]
+description = 'geographic point location inputed in any format'
+
+[geo_address]
+
+
+[geo_position]
+description = 'geo cords + time'
+
+layout = '[latitude]N [longitude]E ±[accuracy] [altitude] ± [altitude_accuracy] @ [heading] [speed]'
+
+[geo_position.fields]
+latitude = { type = "quantity_degree", required = true }
+longitude = "quantity_degree"
+altitude = "quantity_meter"
+accuracy = "quantity_meter"
+altitude_accuracy = "quantity_meter"
+heading = "quantity_degree"
+speed = "quantity_meter_per_second"
+
+# https://developer.mozilla.org/en-US/docs/Web/API/GeolocationCoordinates
+
+[geo_coordinates]
+description = '[ISO_6709](https://en.wikipedia.org/wiki/ISO_6709) geographic point location using String expression (Annex H)'
+valid = ['+27.5916+086.5640+8850CRSWGS_84/']
+
+[geo_srid]
+description = 'a [Spatial Reference System Identifier](https://en.wikipedia.org/wiki/Spatial_reference_system#Identifier) from the [EPSG Geodetic Parameter Dataset](https://en.wikipedia.org/wiki/EPSG_Geodetic_Parameter_Dataset)'
+valid = ['EPSG:4326', 'EPSG:3857', 'EPSG:7789']
+
+[geo_crs]
+description = '''
+A spatial reference system (SRS) or coordinate reference system (CRS) is a framework used to precisely measure locations on the surface of the Earth as coordinates. It is thus the application of the abstract mathematics of coordinate systems and analytic geometry to geographic space.
+<https://en.wikipedia.org/wiki/Well-known_text_representation_of_coordinate_reference_systems>
+<https://en.wikipedia.org/wiki/Spatial_reference_system>
+ISO 19111'''
+
+example = '''
+GEOGCS["WGS 84",
+    DATUM["WGS_1984",
+        SPHEROID["WGS 84",6378137,298.257223563,
+            AUTHORITY["EPSG","7030"]],
+        AUTHORITY["EPSG","6326"]],
+    PRIMEM["Greenwich",0,
+        AUTHORITY["EPSG","8901"]],
+    UNIT["degree",0.01745329251994328,
+        AUTHORITY["EPSG","9122"]],
+    AUTHORITY["EPSG","4326"]]
+'''
+
+# web
+
+[uuid]
+description = 'a [Universally unique identifier](https://en.wikipedia.org/wiki/Universally_unique_identifier)'
+
+[uri]
+description = 'any [Uniform Resource Identifier](https://en.wikipedia.org/wiki/Uniform_Resource_Identifier)'
+
+grammar = '''
+URI = scheme ":" ["//" authority] path ["?" query] ["#" fragment]
+authority = [userinfo "@"] host [":" port]
+'''
+
+[link]
+description = 'a URI that links to a webpage i guess. optionally with a description using markdown'
+
+
+# crypto crap
+[cid]
+description = 'a cid for ipfs'
+
+[multiaddr]
+description = '<https://multiformats.io/multiaddr/>'
+
+[multihash]
+description = 'a multibase encoded <https://multiformats.io/multihash/>'
+
+
+[multibase]
+description = '<https://github.com/multiformats/multibase>'
+
+
+[libp2p-peerid]
+
+[crypto-adress]
+description = 'a cry'
+
+[ssh-public]
+description = 'an ssh public key'
+[ssh-private]
+description = 'an ssh private key'
+
+# [ed25519-public]
+# description = 'an ed25519 public key'
+# [ed25519-private]
+# description = 'an ed25519 private key'
+
+[gpg-key]
+description = 'a PGP / GPG public key for <https://en.wikipedia.org/wiki/GNU_Privacy_Guard>'
+
+# various common hash algorthms
+[md5]
+description = 'an insecure <https://en.wikipedia.org/wiki/MD5> hex digest'
+
+[sha2-256]
+description = 'a 256 bit <https://en.wikipedia.org/wiki/SHA-2> hex digest'
+
+[blake2-256]
+description = 'a 256 bit <https://en.wikipedia.org/wiki/BLAKE_(hash_function)> hex digest'
+
+[sha3-256]
+description = '256 bit <https://en.wikipedia.org/wiki/SHA-3> hex digest'
+
+
+# legal
+[spdx-license]
+description = 'https://spdx.org/licenses/'
+valid = ['AGPL-3.0-or-later']
+
+[spdx-license-expression]
+description = 'https://spdx.org/specifications'
+valid = [
+    # not sure if this is valid
+    # 'GPL-2.0-or-later WITH Autoconf-exception-2.0',
+    'LicenseRef-23',
+    'LicenseRef-MIT-Style-1',
+    'DocumentRef-spdx-tool-1.2:LicenseRef-MIT-Style-2',
+    '(LGPL-2.1 OR MIT)',
+    '(LGPL-2.1 OR MIT OR BSD-3-Clause)',
+]
+
+# local
+
+[tld]
+description = "an iana tld <https://data.iana.org/TLD/tlds-alpha-by-domain.txt>"
+
+[time_zone]
+description = 'a named timezone from [IANA time zone database](https://data.iana.org/time-zones/) the [tz database](https://en.wikipedia.org/wiki/Tz_database)'
+note = 'rust uses <https://crates.io/crates/chrono_tz> for this'
+
+[country_code]
+description = 'a [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) avalible at <https://data.iana.org/time-zones/data/iso3166.tab>'
+note = 'rust crate <https://crates.io/crates/iso_country> or <https://crates.io/crates/celes>'
+
+[lang]
+description = '[IETF language tag.](https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry) A language code is a code that assigns letters or numbers as identifiers or classifiers for languages. These codes may be used to organize library collections or presentations of data, to choose the correct localizations and translations in computing, and as a shorthand designation for longer forms of language names.'
+note = 'rust crate <https://crates.io/crates/language-tags>'
+
+[currency]
+description = 'ISO 4217'
+note = 'rust uses <https://crates.io/crates/iso_currency> can get data from <https://www.six-group.com/dam/download/financial-information/data-center/iso-currrency/lists/list_one.xml>'
+
+# currency
+[currency_amount]
+description = 'an ammount of a currency'
+valid = ['EUR 30', '30 EUR']
+
+# machine number types
+[i8]
+[i16]
+[i32]
+[i64]
+[i128]
+[u8]
+[u16]
+[u32]
+[u64]
+[u128]
+
+# login
+[username]
+[password]
+
+[hostname]
+[dns_label]
+[dns_name]
+
+# network
+[ip_addr]
+[ip_v4_addr]
+[ip_v6_addr]
+[socket_addr_v4]
+[socket_addr_v6]
+[socket_addr]
+[socket_addrs]
