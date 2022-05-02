@@ -1,2 +1,6 @@
+[file]
+type = 'uri-data'
+description = 'a file'
+
 [file-name]
 [file-uploaded]
