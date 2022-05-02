@@ -1,0 +1,14 @@
+# vendor files
+[github-username]
+description = 'a github username'
+pattern = '^[a-z\d](?:[a-z\d]|-(?=[a-z\d])){0,38}$'
+maxlength = 39
+
+[github-repository]
+description = 'a github repository'
+pattern = '^[a-z\d](?:[a-z\d]|-(?=[a-z\d])){0,38}/[A-Za-z0-9_.-]{1,100}$'
+
+[discord-username]
+description = 'a discord username along with ending tag'
+type = 'string'
+pattern.regex = '^.{3,32}#[0-9]{4}$'
