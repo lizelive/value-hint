@@ -1,5 +1,40 @@
 [oci-referance]
-description = 'a docker style referance'
+description = 'a docker/oci image referance'
+
+field.domain = 'string'
+field.repository = 'string'
+field.tag = '?string'
+field.digest = '?string'
+
+pattern.regex = '''(?x)
+^
+(?:(?P<domain>localhost|(?:[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?)(?:\.[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?)+(?::\d+)?)/)?
+(?P<repository>[a-z0-9]+(?:(?:[._]|__|[-]*)[a-z0-9]+)*(?:/[a-z0-9]+(?:(?:[._]|__|[-]*)[a-z0-9]+)*)*)
+(?::(?P<tag>[\w][\w.-]{0,127}))?
+(?:@(?P<digest>[A-Za-z][A-Za-z0-9]*(?:[-_+.][A-Za-z][A-Za-z0-9]*)*[:][A-Za-z0-9]{32,}))?
+$'''
+
+pattern.grammar = '''
+reference                       := name [ ":" tag ] [ "@" digest ]
+name                            := [domain '/'] path-component ['/' path-component]*
+domain                          := domain-component ['.' domain-component]* [':' port-number]
+domain-component                := /([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9-]*[a-zA-Z0-9])/
+port-number                     := /[0-9]+/
+path-component                  := alpha-numeric [separator alpha-numeric]*
+alpha-numeric                   := /[a-z0-9]+/
+separator                       := /[_.]|__|[-]*/
+
+tag                             := /[\w][\w.-]{0,127}/
+
+digest                          := digest-algorithm ":" digest-hex
+digest-algorithm                := digest-algorithm-component [ digest-algorithm-separator digest-algorithm-component ]*
+digest-algorithm-separator      := /[+.-_]/
+digest-algorithm-component      := /[A-Za-z][A-Za-z0-9]*/
+digest-hex                      := /[0-9a-fA-F]{32,}/ ; At least 128 bit digest value
+
+identifier                      := /[a-f0-9]{64}/
+short-identifier                := /[a-f0-9]{6,64}/
+'''
 
 [oci-containerfile]
 description = 'a containerfile aka dockerfile'
