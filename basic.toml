@@ -67,7 +67,7 @@ pattern.bnf = '''
 
 [url]
 description = 'A URL, such as a home page or company web site address as appropriate given the context of the other fields in the form.'
-
+pattern.regex = '^(([^:/?#]+):)?(//([^/?#]*))?([^?#]*)(\?([^#]*))?(#(.*))?'
 [color-profile]
 description = "an icc color profile"
 
